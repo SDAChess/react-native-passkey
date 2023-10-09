@@ -74,10 +74,6 @@ export class PasskeyAndroid {
   ): PasskeyRegistrationResult & PasskeyAuthenticationResult {
     // Transform Base64URL Response to Base64
     let id = response.id;
-    if (id.length % 4 !== 0) {
-      id += '==='.slice(0, 4 - (id.length % 4));
-    }
-    id = id.replace(/-/g, '+').replace(/_/g, '/');
 
     return {
       ...response,
